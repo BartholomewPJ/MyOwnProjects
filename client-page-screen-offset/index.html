@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+body {
+	width:100vw;
+    height:300vh;
+    position:relative;
+}
+div {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+ position:absolute;
+ top:250px;
+ left:100px;
+ background-color:lightblue;
+padding:0;
+}
+</style>
+</head>
+<body onclick="showCoords(event)">
+
+<div id="box">
+<p id="demo"></p>
+</div>
+
+<script>
+const box = document.getElementById('box')
+
+function showCoords(event) {
+  let cX = event.clientX;
+  let sX = event.screenX;
+  let pX = event.pageX;
+  let oX = event.offsetX;
+  
+  let cY = event.clientY;
+  let sY = event.screenY;
+  let pY = event.pageY;
+  let oY = event.offsetY;
+  
+  let coords1 = "client - X: " + cX + ", Y coords: " + cY;
+  let coords2 = "screen - X: " + sX + ", Y coords: " + sY;
+  let coords3 = "page - X: " + pX + ", Y coords: " + pY;
+  let coords4 = "offset - X: " + oX + ", Y coords: " + oY;
+//The position of the div box relative to the active window //
+  let boundingClientTop = "client top = " + box.getBoundingClientRect().top;
+  let boundingClientBottom = "clent bottom = " + box.getBoundingClientRect().bottom;  
+
+  let windowinnerheight = "window inner height = " + window.innerHeight;
+
+  let offsetheight = "offset height = " + box.offsetHeight;
+
+  let scrolly = "scrollY = " + window.scrollY;
+  // var windowouterheight = "window outer height = " + window.outerHeight;
+ 
+  document.getElementById("demo").innerHTML = coords1 + "<br>" + coords2 + "<br>" + coords3 + "<br>" + coords4 + "<br>" + boundingClientTop + "<br>" + boundingClientBottom + "<br>" + windowinnerheight + "<br>" + offsetheight + "<br>" + scrolly;
+}
+</script>
+
+</body>
+</html>
