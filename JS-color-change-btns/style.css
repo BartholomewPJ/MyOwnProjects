@@ -1,0 +1,39 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+.parallax-container {
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows:auto;
+    gap:3px;
+    margin:30px 20px 0px 20px;
+}
+
+.parallax-item {
+    border:2px solid red;
+    display:grid;
+    place-content:center;
+ /* background-color:pink; */
+}
+
+.leaf {
+    width:50px;
+    height:50px;
+   /* background-color:blueviolet; */
+    margin:10px;
+    border-radius:50%;
+}
+
+.btn {
+    width:100px;
+    height:50px;
+    background-color:white;
+    margin-top:20px;
+}
+.btn-container {
+    display:flex;
+    justify-content:center;
+}
