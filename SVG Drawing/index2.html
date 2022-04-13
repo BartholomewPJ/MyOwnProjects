@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trying to understand arc paths</title>
+</head>
+<body>
+    <svg width="1000" height="1000">
+        <circle cx="800" cy="200" r="3" fill="green"></circle>
+        <circle cx="800" cy="100" r="3" fill="red"></circle>
+
+<!-- Note these numbers are just eyeballing it to show a basic diagram of what this is about -->
+<!-- The numbers are not calculated -->
+        <circle cx="886" cy="150" r="100" fill="none" stroke="purple"></circle>
+        <circle cx="712" cy="150" r="100" fill="none" stroke="purple"></circle>
+
+        <!-- The premise is that you have two points within a region-->
+        <!-- We connect the two points with a circle of designated radius -->
+        <!-- If we start from the red point, note how there are two possible paths and we can go four difference directions for the arc -->
+
+        <!-- The fourth number is the large-arc-flag -->
+        <!-- The fifthe number is the sweep-flag -->
+    <path d="M400 100 a 100 100, 0, 0, 0, 0 100" fill="blue"></path>
+<!--  From the  red point, we go down and left-->
+<!-- 0, 0 -->
+<!-- The arc will be less than 180deg, so the large-arc-flag is zero-->
+<!--  The sweep is to the left (negative direction) so the sweep-flag is zero.-->
+
+   <path d="M400 300 a 100 100, 0, 1, 1, 0 100" fill="blue"></path>
+<!--  From the  red point, we go up and right-->
+<!-- 1, 1 -->
+<!-- This means we go in the positive direction for an arc greater than 180deg -->
+<!-- So large-arc-flag is one and sweep flag is one -->
+
+    <path d="M400 500 a 100 100, 0, 0, 1, 0 100" fill="blue"></path>
+<!--  From the red point, we go down and right-->
+<!-- 0, 1 -->
+<!--  The large-arc-flag is zero, meaning we will be drawing the small arc less than 180deg -->
+<!-- We are going in positive direction so the sweep flag is 1 -->
+
+    <path d="M400 700 a 100 100, 0, 1, 0, 0 100" fill="blue"></path>
+   <!--  From the  red point, we go up and left--> 
+   <!-- 1, 0 -->
+   <!-- This means we go in the negative direction for the large arc greater than 180deg -->
+   <!-- Large-arc-flag is one and sweep-flag is zero -->
+    
+   <!-- These are just to mark starting point of the arcs -->
+    <circle cx="400" cy="100" r="3" fill="red"></circle>
+    <circle cx="400" cy="300" r="3" fill="red"></circle>
+    <circle cx="400" cy="500" r="3" fill="red"></circle>
+    <circle cx="400" cy="700" r="3" fill="red"></circle>
+
+
+
+</svg>
+
+</body>
+</html>

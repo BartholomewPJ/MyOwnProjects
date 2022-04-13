@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Timed Drawing Test</title>
+</head>
+<body>
+
+ <div class="container">     
+      <svg width="800" height="600">
+        <!-- <g fill="none" stroke="blue" stroke-width="1" stroke-dasharray="800" stroke-dashoffset="800"> -->
+         
+          <path d="M50, 50 v200, h200, v-200z" stroke="green" fill="none" stroke-dasharray="800" stroke-dashoffset="800">
+          <animate id="first" attributeName="stroke-dashoffset"
+          begin="1s" dur="2s"
+          calcMode="linear"
+          values="800; 0; 0"
+          keyTimes="0;0.5;1"
+         fill="freeze" 
+         repeatDur="indefinite"/>
+                 
+        </path>
+
+
+           <path d="M100, 100 v200, h200, v-200z" stroke="red" fill="none" stroke-dasharray="800" stroke-dashoffset="800">
+           <animate attributeName="stroke-dashoffset"
+           begin="first.begin + 1s" dur="2s"
+           calcMode="linear"
+           values="800; 0; 0"
+           keyTimes="0;0.5;1"
+          fill="freeze" 
+          repeatDur="indefinite"/>
+        </path>
+
+
+           <path d="M150, 150 v200, h200, v-200z" stroke="purple" fill="none" stroke-dasharray="800" stroke-dashoffset="800">
+            <animate attributeName="stroke-dashoffset"
+            begin="first.begin" dur="2s"
+            calcMode="linear"
+            values="800;0; 0"
+            keyTimes="0;0.5;1"
+           fill="freeze" 
+           repeatDur="indefinite"/>
+
+           </path>
+         
+           <path d="M200, 200 v200, h200, v-200z" stroke="orange" fill="none" stroke-dasharray="800" stroke-dashoffset="800">
+            <animate attributeName="stroke-dashoffset"
+            begin="first.begin + 1s" dur="2s"
+            calcMode="linear"
+            values="800; 0; 0"
+            keyTimes="0;0.5;1"
+           fill="freeze" 
+           repeatDur="indefinite"/>
+         </path>
+
+         <path d="M250,250 a 100 100 0 0 0 200 0 M250,250 a 100 100 0 0 1 200 0" fill="none" stroke="brown"></path>
+        
+         
+        <!-- </g> -->
+      </svg>
+      
+      </div>
+</body>
+<style>
+  body {
+    background-color:ivory;
+  }
+  .container {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+  }
+</style>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re-using SVG paths defined once</title>
+</head>
+<body>
+    <?php include_once("star.svg"); ?>
+
+  <svg width="450" height="450" viewBox="0 0 450 450">
+     <use href="#startest"></use>
+  <circle cx="0" cy="0" r="10"  fill="red">
+        <animateMotion begin="0" dur="10s"
+        repeatCount="indefinite">
+    <mpath href="#startest"></mpath>
+    </animateMotion>
+</circle> 
+<text>
+    <textPath href="#startest">Text along the path of this star
+
+      <animate attributeName="startOffset" from="0%" to="100%" begin="0s" dur="5s" repeatCount="indefinite"></animate>
+    </textPath>
+</text>
+</svg>
+
+</body>
+
+<svg>
+<defs>
+    <path id="startest" fill="none" stroke="lightgrey" d="M 344.04149,365.6284 227.58715,304.59216 134.21514,397.15945 128.84691,265.78891 1.9952821,231.21004 113.08139,160.87574 79.601763,33.729567 196.0561,94.765814 289.42811,2.1985176 294.79634,133.56906 421.64797,168.14794 310.56186,238.48223 Z"></path>
+    
+</defs>
+</svg>
+</html>
